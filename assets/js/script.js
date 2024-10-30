@@ -31,6 +31,33 @@ function typeEffect(element, text, speed = 100, callback) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Ajouter ceci au début de votre event listener DOMContentLoaded
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Empêche le comportement par défaut du lien
+            
+            // Récupère l'ID de la section cible depuis le href
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                // Calcul de l'offset pour tenir compte de la barre de navigation fixe
+                const navHeight = document.querySelector('.nav-container').offsetHeight;
+                const targetPosition = targetSection.offsetTop - navHeight;
+                
+                // Défilement fluide
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Ferme le menu burger si ouvert (code existant)
+            burgerMenu.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
     // Effet de typing sur le h1 et gestion du paragraphe
     const h1Element = document.querySelector('.typing-effect');
     const pElement = document.querySelector('.hero-content p');

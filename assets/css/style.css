@@ -186,6 +186,58 @@ section {
     position: relative;
     overflow: hidden;
     color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.hero h1 {
+    color: white;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.hero p {
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    margin-top: 1rem;
+}
+
+/* Media queries pour la section hero */
+@media screen and (max-width: 768px) {
+    .hero {
+        padding-top: 80px;
+        min-height: 80vh;
+    }
+    
+    .hero-content {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero {
+        justify-content: flex-start;
+        padding-top: 100px;
+        min-height: 60vh;
+    }
+
+    .hero h1 {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
 }
 
 /* Dégradé pour le mode clair */
