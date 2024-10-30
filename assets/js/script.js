@@ -264,33 +264,25 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 
-    // Animation des barres de compétences
-    function animateProgressBars() {
-        const progressBars = document.querySelectorAll('.progress');
+    // Fonction pour animer les barres de compétences
+    function animateSkillBars() {
+        const skillBars = document.querySelectorAll('.skill-bar');
         
-        progressBars.forEach(progress => {
-            const value = progress.getAttribute('data-value');
-            const progressText = progress.querySelector('.progress-text');
-            
-            // Réinitialiser la largeur
-            progress.style.width = '0%';
-            if (progressText) progressText.textContent = '0%';
-            
-            // Animation
-            setTimeout(() => {
-                progress.style.width = value + '%';
-                if (progressText) {
-                    let currentValue = 0;
-                    const interval = setInterval(() => {
-                        if (currentValue >= parseInt(value)) {
-                            clearInterval(interval);
-                        } else {
-                            currentValue++;
-                            progressText.textContent = currentValue + '%';
-                        }
-                    }, 20);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const percentage = entry.target.getAttribute('data-percentage');
+                    entry.target.style.setProperty('--width', percentage + '%');
+                    entry.target.querySelector('.progress').style.width = percentage + '%';
+                    observer.unobserve(entry.target); // Arrête d'observer une fois animé
                 }
-            }, 200);
+            });
+        }, {
+            threshold: 0.1 // Déclenche quand 10% de l'élément est visible
+        });
+
+        skillBars.forEach(bar => {
+            observer.observe(bar);
         });
     }
 
@@ -300,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateProgressBars();
+                    animateSkillBars();
                     observer.unobserve(entry.target);
                 }
             });
@@ -311,4 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Appeler la fonction createParticles
     createParticles();
+
+    // Appeler la fonction d'animation des barres
+    animateSkillBars();
 });
