@@ -30,6 +30,35 @@ function typeEffect(element, text, speed = 100, callback) {
     type();
 }
 
+// Ajouter cette fonction pour créer les particules
+function createParticles() {
+    const particlesContainer = document.querySelector('.particles');
+    const numberOfParticles = 50;
+
+    for (let i = 0; i < numberOfParticles; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Position aléatoire
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        
+        // Taille aléatoire
+        const size = Math.random() * 3 + 1;
+        
+        particle.style.cssText = `
+            left: ${posX}%;
+            top: ${posY}%;
+            width: ${size}px;
+            height: ${size}px;
+            animation: float ${Math.random() * 8 + 4}s ease-in-out infinite;
+            animation-delay: ${Math.random() * 5}s;
+        `;
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Ajouter ceci au début de votre event listener DOMContentLoaded
     document.querySelectorAll('.nav-links a').forEach(link => {
@@ -279,4 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         observer.observe(skillsSection);
     }
+
+    // Appeler la fonction createParticles
+    createParticles();
 });
