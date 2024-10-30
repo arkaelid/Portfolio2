@@ -1543,4 +1543,90 @@ button.social-link:focus {
 /* Adaptation pour le mode sombre */
 
 
+/* Correction des jauges de compétences en responsive */
+@media screen and (max-width: 768px) {
+    .skill-bar {
+        width: 100%; /* Assure que la barre prend toute la largeur */
+    }
 
+    .skill-category {
+        width: 100%;
+        margin: 0 auto 2rem auto;
+    }
+
+    .skills-content {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    /* Rendre visible le bouton de téléchargement du CV */
+    .cv-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .download-cv {
+        display: inline-flex; /* Rendre visible le bouton */
+        width: 100%;
+        max-width: 300px;
+        margin: 1rem auto;
+    }
+}
+
+/* Ajustements supplémentaires pour très petits écrans */
+@media screen and (max-width: 480px) {
+    .skill-category {
+        padding: 1rem;
+    }
+
+    .skill-bar {
+        height: 20px; /* Réduire légèrement la hauteur des barres */
+    }
+
+    .download-cv {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+    }
+
+    /* Gestion du CV en responsive */
+    .cv-container img {
+        display: none; /* Cache l'image du CV */
+    }
+
+    .cv-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .download-cv {
+        display: inline-flex;
+        width: 90%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* Correction des jauges de compétences */
+    .skill-bar {
+        width: 100%;
+    }
+
+    .skill-category {
+        width: 100%;
+        margin: 0 auto 2rem auto;
+    }
+
+    .skills-content {
+        width: 100%;
+        padding: 0 1rem;
+    }
+}
