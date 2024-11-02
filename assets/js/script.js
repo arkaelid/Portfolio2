@@ -307,3 +307,45 @@ document.addEventListener('DOMContentLoaded', function() {
     // Appeler la fonction d'animation des barres
     animateSkillBars();
 });
+
+//carousel
+
+let currentSlide = 0;
+
+function moveSlide(direction) {
+    const slides = document.querySelectorAll('.carousel-item');
+    const totalSlides = slides.length;
+
+    // Masquer l'ancienne diapositive
+    slides[currentSlide].classList.remove('active');
+    document.querySelectorAll('.indicator')[currentSlide].classList.remove('active');
+
+    // Calculer la nouvelle diapositive
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+
+    // Afficher la nouvelle diapositive
+    slides[currentSlide].classList.add('active');
+    document.querySelectorAll('.indicator')[currentSlide].classList.add('active');
+
+    // Déplacer le carrousel
+    const carouselInner = document.querySelector('.carousel-inner');
+    carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+function moveToSlide(index) {
+    const slides = document.querySelectorAll('.carousel-item');
+    const totalSlides = slides.length;
+
+    // Masquer l'ancienne diapositive
+    slides[currentSlide].classList.remove('active');
+    document.querySelectorAll('.indicator')[currentSlide].classList.remove('active');
+
+    // Afficher la nouvelle diapositive
+    currentSlide = index;
+    slides[currentSlide].classList.add('active');
+    document.querySelectorAll('.indicator')[currentSlide].classList.add('active');
+
+    // Déplacer le carrousel
+    const carouselInner = document.querySelector('.carousel-inner');
+    carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+}

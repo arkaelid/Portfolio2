@@ -248,9 +248,7 @@ section {
 /* Dégradé pour le mode sombre */
 [data-theme="dark"] .hero {
     background: linear-gradient(45deg, #52527a, #16213e, #0f3460);
-    /* Alternative avec des gris :
-    background: linear-gradient(45deg, #1a1a1a, #2c2c2c, #333333); 
-    */
+   
 }
 
 /* Optionnel : Ajouter un effet de profondeur */
@@ -335,22 +333,9 @@ section {
     }
 }
 
-/* Style pour l'image sélectionnée */
-.selected-project {
-    flex: 0.6;
-    height: 500px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
 
-.selected-project iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
+
+
 
 /* Responsive */
 @media screen and (max-width: 768px) {
@@ -399,16 +384,16 @@ section {
 
 .skill-info {
     margin-bottom: 0.5rem;
-    width: 100%; /* Assure une largeur complète */
+    width: 100%; 
 }
 
 .skill-info span {
-    display: block; /* Force le texte à prendre sa propre ligne */
+    display: block; 
     margin-bottom: 0.5rem;
 }
 
 .skill-bar {
-    width: 500px; /* Même largeur fixe que skill-category */
+    width: 500px; 
     height: 25px;
     background: #e0e0e0;
     border-radius: 12px;
@@ -527,14 +512,14 @@ section {
 }
 /* Style spécifique pour la section contact */
 .contact h2 {
-    color: #ecf0f1 !important; /* Couleur claire du mode sombre */
+    color: #ecf0f1 !important; 
     text-align: center;
 }
 
 /* Style pour les icônes sociales dans la section contact */
 .contact .social-links .social-link, 
 .contact .social-links button.social-link {
-    color: #ecf0f1 !important; /* Couleur claire du mode sombre */
+    color: #ecf0f1 !important; 
 }
 
 .contact .social-links .social-link:hover, 
@@ -856,11 +841,11 @@ button.social-link:hover {
     }
 
     .cv-container {
-        display: none; /* Cache l'aperçu du CV */
+        display: none; 
     }
 
     .download-cv {
-        width: 50%; /* Bouton pleine largeur en mobile */
+        width: 50%; 
         justify-content: center;
     }
 }
@@ -900,7 +885,6 @@ button.social-link:hover {
     margin-bottom: 1rem;
 }
 
-/* Ajouter les styles pour l'animation du sous-texte */
 
 
 /* Style global pour tous les h2 */
@@ -1094,27 +1078,7 @@ h2::after {
     background: #234876;
 }
 
-/* Animation de la barre */
-.skill-bar[data-percentage="90"] {
-    --width: 90%;
-}
-.skill-bar[data-percentage="90"]::before {
-    width: 90%;
-}
 
-.skill-bar[data-percentage="80"] {
-    --width: 80%;
-}
-.skill-bar[data-percentage="80"]::before {
-    width: 80%;
-}
-
-.skill-bar[data-percentage="70"] {
-    --width: 70%;
-}
-.skill-bar[data-percentage="70"]::before {
-    width: 70%;
-}
 
 /* Supprimer tous les anciens styles de skill-bar et les remplacer par ceux-ci */
 .skill-item {
@@ -1253,43 +1217,28 @@ h2::after {
     }
 }
 
-.portfolio-preview {
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 500px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    z-index: 2; 
 }
 
-.portfolio-preview iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
+.carousel-item {
+    position: relative; 
 }
 
-.portfolio-item:hover .portfolio-preview iframe {
-    transform: scale(1.1);
+.carousel-item:hover .portfolio-overlay {
+    opacity: 1; 
 }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-    .portfolio-preview {
-        height: 400px;
-    }
-    
-    /* Garder le même comportement de zoom sur mobile */
-    .portfolio-preview iframe {
-        transform: scale(1.05);
-    }
-    
-    .portfolio-item:hover .portfolio-preview iframe,
-    .portfolio-item:active .portfolio-preview iframe { /* Ajout du :active pour le tactile */
-        transform: scale(1.1);
-    }
-}
 
 /* Ajuster le z-index pour que l'overlay reste au-dessus */
 .portfolio-overlay {
@@ -1351,7 +1300,7 @@ h2::after {
 .copied {
     background: #27ae60 !important;
 }
-/* Ajoutez ces styles pour que le bouton ressemble au lien */
+
 
 
 .social-link:hover {
@@ -1359,7 +1308,7 @@ h2::after {
     transform: translateY(-2px);
 }
 
-/* Assurer que l'icône Discord a la même taille */
+
 .social-link i {
     font-size: 1.5rem;
 }
@@ -1540,41 +1489,10 @@ button.social-link:focus {
     font-size: 0.9rem;
 }
 
-/* Adaptation pour le mode sombre */
 
 
-/* Correction des jauges de compétences en responsive */
-@media screen and (max-width: 768px) {
-    .skill-bar {
-        width: 100%; /* Assure que la barre prend toute la largeur */
-    }
 
-    .skill-category {
-        width: 100%;
-        margin: 0 auto 2rem auto;
-    }
 
-    .skills-content {
-        width: 100%;
-        padding: 0 1rem;
-    }
-
-    /* Rendre visible le bouton de téléchargement du CV */
-    .cv-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        margin-top: 2rem;
-    }
-
-    .download-cv {
-        display: inline-flex; /* Rendre visible le bouton */
-        width: 100%;
-        max-width: 300px;
-        margin: 1rem auto;
-    }
-}
 
 /* Ajustements supplémentaires pour très petits écrans */
 @media screen and (max-width: 480px) {
@@ -1583,13 +1501,24 @@ button.social-link:focus {
     }
 
     .skill-bar {
-        height: 20px; /* Réduire légèrement la hauteur des barres */
+        height: 20px; 
     }
 
     .download-cv {
         font-size: 0.9rem;
         padding: 0.7rem 1rem;
     }
+    .carousel iframe {
+        width: 100%;
+        height: 400px; 
+        border: none;
+    }
+    .discord-id input {
+    padding: 0;
+    font-size: .8rem;
+    
+}
+    
 }
 @media screen and (max-width: 768px) {
     .skills-container {
@@ -1598,7 +1527,7 @@ button.social-link:focus {
 
     /* Gestion du CV en responsive */
     .cv-container img {
-        display: none; /* Cache l'image du CV */
+        display: none; 
     }
 
     .cv-container {
@@ -1615,7 +1544,7 @@ button.social-link:focus {
         margin: 0 auto;
     }
 
-    /* Correction des jauges de compétences */
+    
     .skill-bar {
         width: 100%;
     }
@@ -1629,4 +1558,104 @@ button.social-link:focus {
         width: 100%;
         padding: 0 1rem;
     }
+    .skill-bar {
+        width: 100%; 
+    }
+
+    .skill-category {
+        width: 100%;
+        margin: 0 auto 2rem auto;
+    }
+
+    .skills-content {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    
+    .cv-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .download-cv {
+        display: inline-flex; 
+        width: 100%;
+        max-width: 300px;
+        margin: 1rem auto;
+    }
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1800px; 
+    border-radius: 20px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel iframe {
+    width: 100%;
+    height: 800px; 
+    border: none;
+    border-radius: 20px;
+}
+
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all .3s ease-in-out;
+}
+.carousel-control:hover{
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+    transform: translatex(-30%);
+}
+.carousel-indicators {
+    display: flex;
+    justify-content: center; 
+    margin-top: 10px; 
+}
+
+.indicator {
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%; 
+    background-color: #d3d3d3; 
+    margin: 0 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: var(--accent-color); /* Couleur active */
 }

@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JARRY Sullivan, contact@sullivan-jarry.fr">
+    <meta name="keywords" content="HTML, CSS, JavaScript, développeur, dev, Applications, web, responsive, portfolio, JARRY, Sullivan, Php, python, Laravel, Smarty, symfony, ">
     <meta name="description" content="Découvrez le portfolio de JARRY Sullivan, développeur web & web mobile en recherche de stage.">
-    <title>Portfolio JARRY Sullivan - Développeur Web & Web Mobile</title>
-    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+    <meta name='subject' content='Portfolio de JARRY Sullivan'>
+    <meta name='language' content='FR'>
+    <title>Portfolio de JARRY Sullivan</title>
+    <link rel="icon" type="image/png" href="./assets/images/ico.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -41,7 +45,7 @@
     <section id="accueil" class="hero">
         <div class="hero-content">
             <h1 class="typing-effect">Développeur Web & Web Mobile</h1>
-            <p>Disponible pour vos projets.</p>
+            <p>En recherche de stage.</p>
         </div>
         <div class="scroll-indicator"></div>
     </section>
@@ -63,7 +67,7 @@
         </div>
     </section>
 
-    <!-- Section Compétences -->
+    
    <!-- Section Compétences -->
 <section id="competences" class="skills">
     <h2>Compétences</h2>
@@ -167,6 +171,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Symfony</span>
+                    </div>
+                    <div class="skill-bar" data-percentage="50">
+                        <div class="progress">
+                            <span class="progress-text"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- CMS -->
@@ -196,32 +210,46 @@
     </div>
 </section>
 
-    <!-- Section Portfolio -->
-    <section id="portfolio" class="portfolio">
-        <h2>Mes Réalisations</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <div class="portfolio-preview">
-                    <iframe src="https://www.phil-clients.fr/sullivan/" title="CMQ TransNum" loading="lazy"></iframe>
-                </div>
+    
+ <!-- Section Portfolio -->
+<section id="portfolio" class="portfolio">
+    <h2>Mes Réalisations</h2>
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="https://www.cmqe-numerique-cvl.com/" target="_blank">
+                    
+                        <iframe src="https://www.cmqe-numerique-cvl.com/" title="CMQ TransNum" loading="lazy"></iframe>
+                    
+                </a>
                 <div class="portfolio-overlay">
-                    <h3>CMQ TransNum</h3>
-                    <p>Site web éducatif</p>
-                    <a href="https://www.phil-clients.fr/sullivan/" target="_blank">Voir le projet</a>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-preview">
-                    <iframe src="https://www.lecreusetdevulcain.com/" title="Le Creuset de Vulcain" loading="lazy"></iframe>
-                </div>
-                <div class="portfolio-overlay">
-                    <h3>Le Creuset de Vulcain</h3>
-                    <p>Site vitrine artisanal</p>
+                    <h3>CMQE transformation numérique</h3>
+                    <p>Site pour un centre de formation</p>
                     <a href="https://www.lecreusetdevulcain.com/" target="_blank">Voir le projet</a>
                 </div>
             </div>
+            <div class="carousel-item">
+                <a href="https://www.lecreusetdevulcain.com/" target="_blank">
+                    
+                        <iframe src="https://www.lecreusetdevulcain.com/" title="Le Creuset de Vulcain" loading="lazy"></iframe>
+                    
+                </a>
+                <div class="portfolio-overlay">
+                    <h3>Le Creuset de Vulcain</h3>
+                    <p>Site vitrine d'une forge</p>
+                    <a href="https://www.lecreusetdevulcain.com/" target="_blank">Voir le projet</a>
+                </div>
+            </div>
+            
         </div>
-    </section>
+        <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    <div class="carousel-indicators">
+        <span class="indicator active" onclick="moveToSlide(0)"></span>
+        <span class="indicator" onclick="moveToSlide(1)"></span>
+    </div>
+</section>
 
     <!-- Section Contact -->
     <section id="contact" class="contact">
@@ -231,7 +259,7 @@
         <div class="contact-content">
             <h2>Me Contacter</h2>
             
-            <!-- Liens sociaux sous le titre -->
+            <!-- Liens sociaux -->
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/sullivan-jarry-35a132291/" target="_blank" class="social-link">
                     <i class="fab fa-linkedin"></i>
@@ -296,14 +324,14 @@
         </div>
     </div>
 
-    <!-- Ajout du footer avant les scripts -->
+    <!-- footer  -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 JARRY Sullivan. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <!-- Scripts existants -->
+    <!-- Scripts  -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function() {
