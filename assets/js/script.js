@@ -310,6 +310,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Appeler la fonction d'animation des barres
     animateSkillBars();
+
+    const skillSelector = document.getElementById('skill-selector');
+    const skillCategories = document.querySelectorAll('.skill-category');
+
+    function resetSkillBars() {
+        const skillBars = document.querySelectorAll('.skill-bar');
+        skillBars.forEach(bar => {
+            bar.style.setProperty('--width', '0%'); // Réinitialiser la largeur
+            bar.querySelector('.progress').style.width = '0%'; // Réinitialiser la barre de progression
+        });
+    }
+
+    // Fonction pour gérer le changement de sélection
+    function handleSkillChange() {
+        const selectedValue = this.value;
+
+        // Masquer toutes les catégories
+        skillCategories.forEach(category => {
+            category.style.display = 'none';
+        });
+
+        // Afficher la catégorie sélectionnée
+        const selectedCategory = document.querySelector(`.${selectedValue}`);
+        if (selectedCategory) {
+            selectedCategory.style.display = 'block';
+            resetSkillBars(); // Réinitialiser les barres de compétences
+            animateSkillBars(); // Appeler l'animation des barres de compétences
+        }
+    }
+
+    // Vérifiez si l'écran est en mode téléphone
+    function checkScreenSize() {
+        if (window.innerWidth < 768) {
+            skillSelector.addEventListener('change', handleSkillChange);
+            skillSelector.dispatchEvent(new Event('change')); // Déclencher le changement par défaut
+        } else {
+            skillSelector.removeEventListener('change', handleSkillChange);
+            // Afficher toutes les catégories si on n'est pas en mode téléphone
+            skillCategories.forEach(category => {
+                category.style.display = 'block'; // Afficher toutes les catégories
+            });
+        }
+    }
+
+    // Vérifiez la taille de l'écran au chargement
+    checkScreenSize();
+
+    // Ajoutez un écouteur d'événements pour le redimensionnement de la fenêtre
+    window.addEventListener('resize', checkScreenSize);
 });
 
 //carousel
@@ -352,4 +401,17 @@ function moveToSlide(index) {
     // Déplacer le carrousel
     const carouselInner = document.querySelector('.carousel-inner');
     carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+function toggleText() {
+    const moreText = document.querySelector('.more-text');
+    const voirPlusLink = document.querySelector('.voir-plus');
+
+    if (moreText.style.display === 'none' || moreText.style.display === '') {
+        moreText.style.display = 'block'; // Afficher le texte
+        voirPlusLink.textContent = 'Voir moins'; // Changer le texte du lien
+    } else {
+        moreText.style.display = 'none'; // Masquer le texte
+        voirPlusLink.textContent = 'Voir plus'; // Rétablir le texte du lien
+    }
 }

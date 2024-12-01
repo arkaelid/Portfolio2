@@ -58,8 +58,13 @@
             <div class="profile-card">
                 <div class="profile-info">
                     <h3>Mon Parcours</h3>
-                    <p>Ancien soignant en reconversion professionnelle, j'ai décidé de suivre ma passion pour l'informatique et ai fait une formation professionnelle de développeur web & web mobile au campus de la cci de Blois (promotion 2023/2024).
-                        Ayant eu mon titre professionnel et souhaitant me perfectionner, j'ai continué sur la formation de Concepteur Développeur d'Applications. Motivé et déterminé, je cherche un stage du 24 Mars au 18 Juin 2025 qui me permettra de mettre en pratique mes compétences et contribuer activement à de nouveaux projets.</p>
+                    <p>Ancien soignant en reconversion professionnelle, j'ai décidé de suivre ma passion pour l'informatique et ai fait une formation professionnelle de développeur web & web mobile au campus de la cci de Blois (promotion 2023/2024). 
+                        
+                    </p>
+                    <div class="more-text">
+                        <p>Ayant eu mon titre professionnel et souhaitant me perfectionner, j'ai continué sur la formation de Concepteur Développeur d'Applications. Motivé et déterminé, je cherche un stage du 24 Mars au 18 Juin 2025 qui me permettra de mettre en pratique mes compétences et contribuer activement à de nouveaux projets.</p>
+                    </div>
+                    <a href="javascript:void(0);" class="voir-plus" onclick="toggleText()">Voir plus</a>
                 </div>
             </div>
             <div class="profile-img">
@@ -73,9 +78,16 @@
 <section id="competences" class="skills">
     <h2>Compétences</h2>
     <div class="skills-container">
+        <label for="skill-selector">Choisissez une catégorie :</label>
+        <select id="skill-selector">
+            <option value="front-end">Front-end</option>
+            <option value="back-end">Back-end</option>
+            <option value="cms">CMS</option>
+        </select>
+
         <div class="skills-content">
             <!-- Front-end -->
-            <div class="skill-category">
+            <div class="skill-category front-end">
                 <h3>Front-end</h3>
                 <div class="skill-item">
                     <div class="skill-info">
@@ -110,7 +122,7 @@
             </div>
 
             <!-- Back-end -->
-            <div class="skill-category">
+            <div class="skill-category back-end">
                 <h3>Back-end</h3>
                 <div class="skill-item">
                     <div class="skill-info">
@@ -185,8 +197,8 @@
             </div>
 
             <!-- CMS -->
-            <div class="skill-category">
-                <h3>CMS</h3>
+            <div class="skill-category cms">
+                <h3>CMS</h3> 
                 <div class="skill-item">
                     <div class="skill-info">
                         <span>WordPress</span>

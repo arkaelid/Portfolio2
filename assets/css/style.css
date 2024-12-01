@@ -223,7 +223,7 @@ section {
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 425px) {
     .hero {
         justify-content: flex-start;
         padding-top: 100px;
@@ -237,6 +237,36 @@ section {
 
     .hero p {
         font-size: 0.9rem;
+    }
+    .more-text {
+        display: none; 
+    }
+    .voir-plus{
+        display: flex !important;
+        justify-content: center;
+    }
+    .cv-container{
+        margin-top: 0 !important;
+    }
+    .skills-container label{
+        color: #e67e22;
+        font-size: 1.3rem;
+        font-weight: 800;
+    }
+    .skills-container select{
+        font-family: "poppins";
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .skills-container label,select {
+        display: flex !important;
+    }
+    .more-text{
+        display: none;
+    }
+    .front-end,.back-end,.CMS{
+        display: none ;
     }
 }
 
@@ -764,7 +794,7 @@ button.social-link:hover {
     }
 }
 
-.rgpd-notice {
+#contact-form .rgpd-notice {
     margin-top: 2rem;
     padding: 1rem;
     border-radius: 8px;
@@ -772,8 +802,7 @@ button.social-link:hover {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    
-}
+    }
 
 .rgpd-notice i {
     color: var(--accent-color);
@@ -836,11 +865,7 @@ button.social-link:hover {
         grid-template-columns: 1fr;
     }
 
-    .rgpd-notice {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+    
 
     .skills-container {
         flex-direction: column;
@@ -1501,7 +1526,7 @@ button.social-link:focus {
 
 
 /* Ajustements supplémentaires pour très petits écrans */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 425px) {
     .skill-category {
         padding: 1rem;
     }
@@ -1663,4 +1688,14 @@ button.social-link:focus {
 
 .indicator.active {
     background-color: var(--accent-color); /* Couleur active */
+}
+
+.voir-plus {
+    color: var(--accent-color);
+    text-decoration: underline;
+    cursor: pointer;
+    display: none;
+}
+.skills-container label,select {
+    display: none;
 }
