@@ -231,7 +231,7 @@ section {
     }
 
     .hero h1 {
-        font-size: 1.2rem;
+        font-size: 1.8rem !important;
         line-height: 1.6;
     }
 
